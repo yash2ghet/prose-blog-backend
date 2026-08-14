@@ -6,7 +6,9 @@ connectDB();
 
 if (process.env.NODE_ENV !== "production") {
   app.listen(env.PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${env.PORT}`);
+    console.log(
+      `🚀 Server running on http://localhost:${env.PORT} in ${env.NODE_ENV} mode`
+    );
   });
 }
 
