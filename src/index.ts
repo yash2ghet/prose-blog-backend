@@ -2,14 +2,12 @@ import app from "./app.ts";
 import { env } from "./config/env.ts";
 import { connectDB } from "./config/db.ts";
 
-const startServer = async () => {
-  await connectDB();
+connectDB();
 
+if (process.env.NODE_ENV !== "production") {
   app.listen(env.PORT, () => {
-    console.log(
-      `🚀 Server running on http://localhost:${env.PORT} in ${env.NODE_ENV} mode`
-    );
+    console.log(`🚀 Server running on http://localhost:${env.PORT}`);
   });
-};
+}
 
-startServer();
+export default app;
